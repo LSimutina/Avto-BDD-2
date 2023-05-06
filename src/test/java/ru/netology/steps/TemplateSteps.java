@@ -1,8 +1,9 @@
 package ru.netology.steps;
 
 import com.codeborne.selenide.Selenide;
-import io.cucumber.java.ru.*;
-import ru.netology.data.DataHelper;
+import io.cucumber.java.ru.Когда;
+import io.cucumber.java.ru.Пусть;
+import io.cucumber.java.ru.Тогда;
 import ru.netology.page.DashboardPage;
 import ru.netology.page.LoginPage;
 import ru.netology.page.TransactionPage;
@@ -33,8 +34,8 @@ public class TemplateSteps {
     }
 
     @Тогда("баланс его '1' карты из списка на главной странице должен стать {int} рублей")
-    public void balanceForFirstCard(int expectedBalanceFirst, DataHelper.CardsInfo firstCard) {
-        var actualBalanceFirst = dashboardPage.getCardBalance(firstCard);
+    public void balanceForFirstCard(int expectedBalanceFirst) {
+        var actualBalanceFirst = dashboardPage.getCardBalance(getFirstCardNumber());
         assertEquals(expectedBalanceFirst, actualBalanceFirst);
     }
 }
