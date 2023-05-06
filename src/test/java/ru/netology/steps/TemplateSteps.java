@@ -26,13 +26,13 @@ public class TemplateSteps {
         dashboardPage.verifyIsDashboardPage();
     }
 
-    @Когда("пользователь переводит {string} рублей с карты с номером 5559 0000 0000 0002 на свою 1 карту с главной страницы")
+    @Когда("пользователь переводит {int} рублей с карты с номером '5559 0000 0000 0002' на свою '1' карту с главной страницы")
     public void transferForFirstCard(int amount){
         transactionPage = dashboardPage.transferMoney(getFirstCardNumber());
         dashboardPage = transactionPage.transferOfMoneyValid(String.valueOf(amount),getSecondCardNumber());
     }
 
-    @Тогда("баланс его 1 карты из списка на главной странице должен стать {string} рублей")
+    @Тогда("баланс его '1' карты из списка на главной странице должен стать {int} рублей")
     public void balanceForFirstCard(int expectedBalanceFirst, DataHelper.CardsInfo firstCard) {
         var actualBalanceFirst = dashboardPage.getCardBalance(firstCard);
         assertEquals(expectedBalanceFirst, actualBalanceFirst);
