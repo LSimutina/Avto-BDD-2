@@ -25,6 +25,11 @@ public class DashboardPage {
         return extractBalance(text);
     }
 
+    public int getCardBalance(int index){
+        var text=cards.get(index).getText();
+        return extractBalance(text);
+    }
+
     public TransactionPage transferMoney(DataHelper.CardsInfo cardsInfo) {
         cards.findBy(attribute("data-test-id", cardsInfo.getTestId())).$("button").click();
         return new TransactionPage();

@@ -28,14 +28,15 @@ public class TemplateSteps {
     }
 
     @Когда("пользователь переводит {int} рублей с карты с номером '5559 0000 0000 0002' на свою '1' карту с главной страницы")
-    public void transferForFirstCard(int amount){
+    public void transferForFirstCard(int amount) {
         transactionPage = dashboardPage.transferMoney(getFirstCardNumber());
-        dashboardPage = transactionPage.transferOfMoneyValid(String.valueOf(amount),getSecondCardNumber());
+        dashboardPage = transactionPage.transferOfMoneyValid(String.valueOf(amount), getSecondCardNumber());
     }
 
-    @Тогда("баланс его '1' карты из списка на главной странице должен стать {int} рублей")
-    public void balanceForFirstCard(int expectedBalanceFirst) {
-        var actualBalanceFirst = dashboardPage.getCardBalance(getFirstCardNumber());
+    @Тогда("баланс его {int} карты из списка на главной странице должен стать {int} рублей")
+    public void balanceForFirstCard(int index, int expectedBalanceFirst) {
+        index = index - 1;
+        var actualBalanceFirst = dashboardPage.getCardBalance(index);
         assertEquals(expectedBalanceFirst, actualBalanceFirst);
     }
 }
