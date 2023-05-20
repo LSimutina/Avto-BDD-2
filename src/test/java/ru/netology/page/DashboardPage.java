@@ -35,6 +35,11 @@ public class DashboardPage {
         return new TransactionPage();
     }
 
+//    public TransactionPage transferMoney(int index) {
+//        cards.findBy(attribute("data-test-id", String.valueOf(cards.get(index)))).$("button").click();
+//        return new TransactionPage();
+//    }
+
     private int extractBalance(String text) {
         String balanceStart = "баланс: ";
         var start = text.indexOf(balanceStart);

@@ -25,4 +25,11 @@ public class TransactionPage {
         replenish.click();
         return new DashboardPage();
     }
+
+    public DashboardPage transferOfMoneyValid(String amount, String cardNumber) {
+        sumAmount.setValue(amount);
+        fromСard.setValue(cardNumber.toString());
+        replenish.click();
+        return new DashboardPage();
+    }
 }

@@ -4,10 +4,6 @@ import lombok.Value;
 
 import java.util.Random;
 
-//@NoArgsConstructor(access = AccessLevel.PRIVATE)
-// Данный класс как пример генерации тестовых данных
-// Вместа передачи данных через сценарий (feature)
-// можно вызывать подобные методы непосредственно в шагах сценария (steps)
 public class DataHelper {
     private DataHelper() {
     }
@@ -30,9 +26,6 @@ public class DataHelper {
     public static VerificationCode getVerificationCodeFor(AuthInfo authInfo) {
         return new VerificationCode("12345");
     }
-//    public static VerificationCode getVerificationCode() {
-//        return new VerificationCode("12345");
-//    }
 
     @Value
     public static class CardsInfo {
